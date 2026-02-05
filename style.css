@@ -1,1 +1,115 @@
-/* Add styles here */
+:root {
+  --body-bg: #f4f4f4;
+  --text-color: #333;
+  --container-bg: #fff;
+  --container-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --h1-color: #0056b3;
+  --button-bg: #007bff;
+  --button-hover-bg: #0056b3;
+  --result-color: #28a745;
+  --number-circle-bg: #e9ecef;
+  --number-circle-border: #ccc;
+  --theme-toggle-color: #fff;
+  --theme-toggle-bg: #6c757d;
+  --theme-toggle-hover-bg: #5a6268;
+}
+
+body.dark-mode {
+  --body-bg: #222;
+  --text-color: #eee;
+  --container-bg: #333;
+  --container-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --h1-color: #6daffc;
+  --button-bg: #4a90e2;
+  --button-hover-bg: #3a7bd5;
+  --result-color: #5cb85c;
+  --number-circle-bg: #444;
+  --number-circle-border: #666;
+  --theme-toggle-color: #222;
+  --theme-toggle-bg: #adb5bd;
+  --theme-toggle-hover-bg: #999ba0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  background-color: var(--container-bg);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--container-shadow);
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1 {
+  color: var(--h1-color);
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--theme-toggle-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--theme-toggle-bg);
+  color: var(--theme-toggle-color);
+}
+
+.theme-toggle:hover {
+  background-color: var(--theme-toggle-hover-bg);
+}
+
+
+#result {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--result-color);
+  min-height: 30px; /* To maintain space even when empty */
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  transition: color 0.3s ease;
+}
+
+.number-circle {
+  background-color: var(--number-circle-bg);
+  border: 2px solid var(--number-circle-border);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
