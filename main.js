@@ -5,6 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const sunIcon = document.getElementById('sunIcon');
   const moonIcon = document.getElementById('moonIcon');
   const currencyNotesContainer = document.getElementById('currency-notes-container');
+  const zodiacAnimalSelect = document.getElementById('zodiacAnimal');
+
+  const chineseZodiacLuckyNumbers = {
+    "Rat": [2, 3],
+    "Ox": [1, 4, 9],
+    "Tiger": [1, 3, 4],
+    "Rabbit": [3, 4, 6, 9],
+    "Dragon": [1, 6, 7],
+    "Snake": [2, 8, 9],
+    "Horse": [2, 3, 7],
+    "Goat": [2, 3, 4, 7, 9], // Also known as Sheep
+    "Monkey": [1, 4, 7, 8, 9],
+    "Rooster": [5, 7, 8],
+    "Dog": [3, 4, 9],
+    "Pig": [2, 5, 8]
+  };
 
   function getRandomColor() {
     const letters = '0123456789ABCDEF';
@@ -16,12 +32,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function generateTotoNumbers() {
-    const numbers = new Set();
-    while (numbers.size < 6) {
-      const randomNumber = Math.floor(Math.random() * 49) + 1;
-      numbers.add(randomNumber);
+    const selectedAnimal = zodiacAnimalSelect.value;
+    let luckyNumbersForAnimal = [];
+
+    if (selectedAnimal && chineseZodiacLuckyNumbers[selectedAnimal]) {
+      // Filter lucky numbers to be within Toto range (1-49) and remove duplicates if any
+      luckyNumbersForAnimal = chineseZodiacLuckyNumbers[selectedAnimal].filter(num => num >= 1 && num <= 49);
     }
-    return Array.from(numbers).sort((a, b) => a - b);
+
+    const generatedNumbers = new Set();
+
+    // Try to include up to 3 lucky numbers
+    const numLuckyToInclude = Math.min(luckyNumbersForAnimal.length, 3);
+    for (let i = 0; i < numLuckyToInclude; i++) {
+      const randomIndex = Math.floor(Math.random() * luckyNumbersForAnimal.length);
+      generatedNumbers.add(luckyNumbersForAnimal[randomIndex]);
+      luckyNumbersForAnimal.splice(randomIndex, 1); // Remove to prevent re-selection
+    }
+
+    // Fill the rest with random unique numbers
+    while (generatedNumbers.size < 6) {
+      const randomNumber = Math.floor(Math.random() * 49) + 1;
+      generatedNumbers.add(randomNumber);
+    }
+
+    return Array.from(generatedNumbers).sort((a, b) => a - b);
   }
 
   generateButton.addEventListener('click', () => {

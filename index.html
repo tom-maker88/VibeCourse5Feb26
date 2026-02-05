@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial="stylesheet" />
   <title>Singapore Toto Number Generator</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuGWkYhWAzNyZlQ4KTSZ8R7vD8zG6M6I5e5q+3h4Fw+F5Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href='/style.css' rel='stylesheet'>
@@ -15,6 +15,24 @@
       <i class="fas fa-moon" id="moonIcon"></i>
     </button>
     <h1>Singapore Toto Number Generator</h1>
+    <div class="zodiac-selection-container">
+      <label for="zodiacAnimal">Select your Chinese Zodiac Animal:</label>
+      <select id="zodiacAnimal">
+        <option value="">None (Random)</option>
+        <option value="Rat">Rat</option>
+        <option value="Ox">Ox</option>
+        <option value="Tiger">Tiger</option>
+        <option value="Rabbit">Rabbit</option>
+        <option value="Dragon">Dragon</option>
+        <option value="Snake">Snake</option>
+        <option value="Horse">Horse</option>
+        <option value="Goat">Goat</option>
+        <option value="Monkey">Monkey</option>
+        <option value="Rooster">Rooster</option>
+        <option value="Dog">Dog</option>
+        <option value="Pig">Pig</option>
+      </select>
+    </div>
     <button id="generateButton">Generate Numbers</button>
     <div id="result"></div>
   </div>
