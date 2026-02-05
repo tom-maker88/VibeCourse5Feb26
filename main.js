@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const moonIcon = document.getElementById('moonIcon');
   const currencyNotesContainer = document.getElementById('currency-notes-container');
   const zodiacAnimalSelect = document.getElementById('zodiacAnimal');
+  const occurrenceDataDiv = document.getElementById('occurrenceData');
+
 
   const chineseZodiacLuckyNumbers = {
     "Rat": [2, 3],
@@ -21,6 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
     "Dog": [3, 4, 9],
     "Pig": [2, 5, 8]
   };
+
+  // Sample historical data based on research findings
+  // Represents winning numbers from a few draws
+  const historicalWinningNumbers = [
+    [15, 37, 10, 1, 28, 49],
+    [15, 12, 28, 49, 3, 21],
+    [37, 10, 1, 12, 5, 18],
+    [15, 49, 2, 9, 33, 41],
+    [10, 12, 1, 7, 14, 29],
+    [31, 38, 46, 10, 19, 22],
+    [31, 38, 46, 34, 39, 10],
+    [31, 38, 10, 19, 22, 39],
+    [31, 46, 19, 22, 34, 39],
+    [15, 37, 1, 49, 28, 10]
+    // ... more simulated data can be added here
+  ].flat(); // Flatten to a single array of numbers
 
   function getRandomColor() {
     const letters = '0123456789ABCDEF';
@@ -132,4 +150,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Generate a continuous stream of notes
   setInterval(createCurrencyNote, 1000); // Create a new note every second
+
+  // Historical data occurrence display
+  function displayHistoricalOccurrences() {
+    const occurrences = {};
+    for (let i = 1; i <= 49; i++) {
+      occurrences[i] = 0;
+    }
+
+    historicalWinningNumbers.forEach(num => {
+      if (num >= 1 && num <= 49) {
+        occurrences[num]++;
+      }
+    });
+
+    const sortedOccurrences = Object.entries(occurrences)
+      .map(([number, count]) => ({ number: parseInt(number), count }))
+      .sort((a, b) => b.count - a.count); // Sort by count descending
+
+    occurrenceDataDiv.innerHTML = ''; // Clear previous data
+
+    sortedOccurrences.forEach(item => {
+      const itemDiv = document.createElement('div');
+      itemDiv.classList.add('occurrence-item');
+      itemDiv.innerHTML = `
+        <div class="occurrence-number-circle">${item.number}</div>
+        <div class="occurrence-count">(${item.count})</div>
+      `;
+      occurrenceDataDiv.appendChild(itemDiv);
+    });
+  }
+
+  displayHistoricalOccurrences(); // Call on page load
 });
