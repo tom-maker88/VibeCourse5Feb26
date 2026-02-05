@@ -40,7 +40,49 @@ body {
   background-color: var(--body-bg);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden; /* Prevent scrollbars from notes */
 }
+
+#currency-notes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow interaction with elements beneath */
+  overflow: hidden; /* Ensure notes don't go beyond screen */
+  z-index: -1; /* Place behind other content */
+}
+
+.currency-note {
+  position: absolute;
+  width: 100px; /* Placeholder size */
+  height: 50px; /* Placeholder size */
+  background-color: gold; /* Placeholder color */
+  border-radius: 5px;
+  opacity: 0;
+  animation: fly-across linear infinite;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+
+@keyframes fly-across {
+  0% {
+    transform: translateX(-100vw) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(0) rotate(720deg);
+    opacity: 0;
+  }
+}
+
 
 .container {
   background-color: var(--container-bg);
@@ -51,6 +93,8 @@ body {
   width: 90%;
   max-width: 500px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* To keep content above notes */
+  z-index: 0;
 }
 
 h1 {
