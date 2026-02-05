@@ -61,7 +61,7 @@ h1 {
 
 button {
   background-color: var(--button-bg);
-  color: var(--theme-toggle-color);
+  color: var(--text-color); /* Changed to text-color for icons */
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -81,10 +81,39 @@ button:hover {
   right: 20px;
   background-color: var(--theme-toggle-bg);
   color: var(--theme-toggle-color);
+  width: 50px; /* Adjust button size for icon */
+  height: 40px; /* Adjust button size for icon */
+  padding: 0; /* Remove padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide overflow when icons switch */
 }
 
-.theme-toggle:hover {
-  background-color: var(--theme-toggle-hover-bg);
+.theme-toggle i {
+  font-size: 20px;
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle .fa-sun {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.theme-toggle .fa-moon {
+  opacity: 0;
+  transform: translateY(20px); /* Start off-screen */
+}
+
+body.dark-mode .theme-toggle .fa-sun {
+  opacity: 0;
+  transform: translateY(-20px); /* Move off-screen */
+}
+
+body.dark-mode .theme-toggle .fa-moon {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
