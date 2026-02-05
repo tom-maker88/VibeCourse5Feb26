@@ -16,6 +16,8 @@
   --select-border: #ccc;
   --historical-header-color: #0056b3;
   --historical-number-bg: #e0e0e0;
+  --form-element-bg: #e9ecef;
+  --form-element-border: #ced4da;
 }
 
 body.dark-mode {
@@ -36,6 +38,8 @@ body.dark-mode {
   --select-border: #888;
   --historical-header-color: #6daffc;
   --historical-number-bg: #555;
+  --form-element-bg: #444;
+  --form-element-border: #666;
 }
 
 body {
@@ -241,6 +245,73 @@ body.dark-mode .theme-toggle .fa-moon {
 .occurrence-count {
   font-size: 0.8em;
   color: var(--text-color);
+}
+
+.feedback-form-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--select-border);
+  text-align: left;
+}
+
+.feedback-form-section h2 {
+  color: var(--h1-color);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.feedback-form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.feedback-form-section label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.feedback-form-section input[type="text"],
+.feedback-form-section input[type="email"],
+.feedback-form-section textarea {
+  padding: 10px;
+  border: 1px solid var(--form-element-border);
+  border-radius: 5px;
+  background-color: var(--form-element-bg);
+  color: var(--text-color);
+  font-size: 1em;
+}
+
+.feedback-form-section input[type="text"]:focus,
+.feedback-form-section input[type="email"]:focus,
+.feedback-form-section textarea:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.feedback-form-section textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.feedback-form-section button[type="submit"] {
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.feedback-form-section button[type="submit"]:hover {
+  background-color: var(--button-hover-bg);
 }
 
 
