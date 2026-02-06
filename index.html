@@ -1,14 +1,96 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Property Investors: New Launches 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-functions-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header>
+        <div class="header-content">
+            <h1>Smart Property Investors</h1>
+            <p>New Launches 2026</p>
+        </div>
+        <div class="header-controls">
+            <button id="dark-mode-toggle">Toggle Dark Mode</button>
+            <div id="auth-container">
+                <button id="login-btn">Login with Google</button>
+                <div id="user-profile" style="display: none;">
+                    <img id="user-pic" src="" alt="User Profile">
+                    <span id="user-name"></span>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="demand-chart">
+            <h2>Community Demand Assessment</h2>
+            <property-chart></property-chart>
+        </section>
+
+        <section id="property-listings">
+        </section>
+
+        <section id="advertisements">
+            <h2>Advertisements</h2>
+            <div class="carousel">
+            </div>
+        </section>
+
+        <section id="resources">
+            <h2>More Free Resources on Singapore Property</h2>
+            <ul>
+                <li><a href="https://www.ura.gov.sg/reis/transaction/search.aspx" target="_blank">Urban Redevelopment Authority (URA)</a> - Transaction data</li>
+                <li><a href="https://data.gov.sg" target="_blank">Data.gov.sg</a> - Public property datasets</li>
+                <li><a href="https://www.mas.gov.sg/statistics/monetary-and-financial/monetary-and-financial-statistics" target="_blank">Monetary Authority of Singapore (MAS)</a> - Mortgage stats</li>
+                <li><a href="https://www.propertyguru.com.sg/property-guides" target="_blank">PropertyGuru.com</a> - Free articles</li>
+                <li><a href="https://www.gov.sg/topics/housing" target="_blank">Singapore Government Property Portal</a> - General info</li>
+            </ul>
+        </section>
+    </main>
+
+    <div id="resale-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Resale Prices</h2>
+            <div id="resale-data"></div>
+        </div>
+    </div>
+
+    <script>
+      // IMPORTANT:
+      // 1. Go to your Firebase project console.
+      // 2. In the left menu, click "Project settings".
+      // 3. In the "General" tab, scroll down to the "Your apps" section.
+      // 4. Click the "</>" icon to get your web app's Firebase configuration.
+      // 5. Copy the firebaseConfig object and paste it here, replacing the placeholder below.
+      
+      const firebaseConfig = {
+        apiKey: "PASTE_YOUR_API_KEY_HERE",
+        authDomain: "PASTE_YOUR_AUTH_DOMAIN_HERE",
+        projectId: "PASTE_YOUR_PROJECT_ID_HERE",
+        storageBucket: "PASTE_YOUR_STORAGE_BUCKET_HERE",
+        messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID_HERE",
+        appId: "PASTE_YOUR_APP_ID_HERE"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const firestore = firebase.firestore();
+      const functions = firebase.functions();
+    </script>
+    <script src="components.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

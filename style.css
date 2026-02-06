@@ -1,1 +1,209 @@
-/* Add styles here */
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg-color: #1e1e1e;
+    --header-bg-color: #1e1e1e;
+    --link-color: #007bff;
+    --glow-color: rgba(0, 123, 255, 0.7);
+}
+
+[data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg-color: #fff;
+    --header-bg-color: #fff;
+    --link-color: #0056b3;
+    --glow-color: rgba(0, 86, 179, 0.7);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1PAAAACklEQVR42uzDcQ0AAAgEMMhe/59r4gp17MXO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5nO5v5v/wsCeAuRBiAZQHNigAAAABJRU5ErkJggg==');
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--header-bg-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content h1 {
+    font-size: 2.2em;
+    margin: 0;
+    font-weight: 700;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+button, .view-resale {
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+button:hover, .view-resale:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--glow-color);
+}
+
+#auth-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#user-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#logout-btn {
+    background-color: #dc3545 !important;
+}
+
+main {
+    padding: 40px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+#property-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#advertisements {
+    margin-top: 40px;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+#resources ul {
+    list-style: none;
+    padding: 0;
+}
+
+#resources li {
+    margin: 10px 0;
+}
+
+#resources a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#resources a:hover {
+    color: var(--glow-color);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: var(--card-bg-color);
+    margin: 10% auto;
+    padding: 40px;
+    border: none;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #fff;
+}
+
+#dark-mode-toggle {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+[data-theme="light"] #dark-mode-toggle {
+    background-color: #ccc;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+[data-theme="light"] th, [data-theme="light"] td {
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #333;
+}
+
+[data-theme="light"] th {
+    background-color: #eee;
+}
