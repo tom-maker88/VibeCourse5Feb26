@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Property Investors: New Launches 2026</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-functions-compat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -44,6 +44,22 @@
         <section id="advertisements">
             <h2>Advertisements</h2>
             <div class="carousel">
+                <div class="ad-slot">
+                    <h3>Featured Agents</h3>
+                    <p>Connect with the best agents in the market.</p>
+                </div>
+                <div class="ad-slot">
+                    <h3>Best Mortgage Rates</h3>
+                    <p>Get the most competitive mortgage rates.</p>
+                </div>
+                <div class="ad-slot">
+                    <h3>Luxury Interiors</h3>
+                    <p>Design your dream home with top designers.</p>
+                </div>
+                <div class="ad-slot">
+                    <h3>Invest in Your Future</h3>
+                    <p>Explore more investment opportunities.</p>
+                </div>
             </div>
         </section>
 
@@ -88,7 +104,6 @@
       firebase.initializeApp(firebaseConfig);
       const auth = firebase.auth();
       const firestore = firebase.firestore();
-      const functions = firebase.functions();
     </script>
     <script src="components.js"></script>
     <script src="main.js"></script>
