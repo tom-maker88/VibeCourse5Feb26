@@ -3,57 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial="stylesheet" />
-  <title>Singapore Toto Number Generator</title>
+  <title data-i18n="appTitle">Singapore Toto Number Generator</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuGWkYhWAzNyZlQ4KTSZ8R7vD8zG6M6I5e5q+3h4Fw+F5Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
   <div id="currency-notes-container"></div>
   <div class="container">
-    <button id="themeToggle" class="theme-toggle">
-      <i class="fas fa-sun active" id="sunIcon"></i>
-      <i class="fas fa-moon" id="moonIcon"></i>
-    </button>
-    <h1>Singapore Toto Number Generator</h1>
+    <div class="controls-top">
+      <button id="themeToggle" class="theme-toggle">
+        <i class="fas fa-sun active" id="sunIcon"></i>
+        <i class="fas fa-moon" id="moonIcon"></i>
+      </button>
+      <div class="language-selector-container">
+        <label for="languageSelect" data-i18n="selectLanguage"></label>
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="ar">العربية</option>
+          <option value="th">ภาษาไทย</option>
+        </select>
+      </div>
+    </div>
+    <h1 data-i18n="mainHeading">Singapore Toto Number Generator</h1>
     <div class="zodiac-selection-container">
-      <label for="zodiacAnimal">Select your Chinese Zodiac Animal:</label>
+      <label for="zodiacAnimal" data-i18n="selectZodiacAnimal">Select your Chinese Zodiac Animal:</label>
       <select id="zodiacAnimal">
-        <option value="">None (Random)</option>
-        <option value="Rat">Rat</option>
-        <option value="Ox">Ox</option>
-        <option value="Tiger">Tiger</option>
-        <option value="Rabbit">Rabbit</option>
-        <option value="Dragon">Dragon</option>
-        <option value="Snake">Snake</option>
-        <option value="Horse">Horse</option>
-        <option value="Goat">Goat</option>
-        <option value="Monkey">Monkey</option>
-        <option value="Rooster">Rooster</option>
-        <option value="Dog">Dog</option>
-        <option value="Pig">Pig</option>
+        <option value="" data-i18n="noneRandom">None (Random)</option>
+        <option value="Rat" data-i18n="rat">Rat</option>
+        <option value="Ox" data-i18n="ox">Ox</option>
+        <option value="Tiger" data-i18n="tiger">Tiger</option>
+        <option value="Rabbit" data-i18n="rabbit">Rabbit</option>
+        <option value="Dragon" data-i18n="dragon">Dragon</option>
+        <option value="Snake" data-i18n="snake">Snake</option>
+        <option value="Horse" data-i18n="horse">Horse</option>
+        <option value="Goat" data-i18n="goat">Goat</option>
+        <option value="Monkey" data-i18n="monkey">Monkey</option>
+        <option value="Rooster" data-i18n="rooster">Rooster</option>
+        <option value="Dog" data-i18n="dog">Dog</option>
+        <option value="Pig" data-i18n="pig">Pig</option>
       </select>
     </div>
-    <button id="generateButton">Generate Numbers</button>
+    <button id="generateButton" data-i18n="generateNumbersBtn">Generate Numbers</button>
     <div id="result"></div>
 
     <div class="historical-data-section">
-      <h2>Historical Number Occurrences</h2>
+      <h2 data-i18n="historicalDataHeading">Historical Number Occurrences</h2>
       <div id="occurrenceData"></div>
     </div>
 
     <div class="feedback-form-section">
-      <h2>Send Us Feedback!</h2>
+      <h2 data-i18n="feedbackHeading">Send Us Feedback!</h2>
       <form action="https://formspree.io/f/mkovwrgl" method="POST">
-        <label for="name">Name:</label>
+        <label for="name" data-i18n="formNameLabel">Name:</label>
         <input type="text" id="name" name="name" required>
         
-        <label for="email">Email:</label>
+        <label for="email" data-i18n="formEmailLabel">Email:</label>
         <input type="email" id="email" name="email" required>
         
-        <label for="message">Message:</label>
+        <label for="message" data-i18n="formMessageLabel">Message:</label>
         <textarea id="message" name="message" rows="5" required></textarea>
         
-        <button type="submit">Send Feedback</button>
+        <button type="submit" data-i18n="formSubmitBtn">Send Feedback</button>
       </form>
     </div>
   </div>

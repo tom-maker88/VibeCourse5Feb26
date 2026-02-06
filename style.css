@@ -55,6 +55,11 @@ body {
   overflow: hidden; /* Prevent scrollbars from notes */
 }
 
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
 #currency-notes-container {
   position: fixed;
   top: 0;
@@ -111,6 +116,38 @@ body {
   max-height: 90vh; /* Limit height to prevent container overflow */
 }
 
+.controls-top {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 10; /* Ensure controls are above other content */
+}
+
+.language-selector-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.language-selector-container label {
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+.language-selector-container select {
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--select-border);
+  background-color: var(--select-bg);
+  color: var(--text-color);
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+
 h1 {
   color: var(--h1-color);
   margin-bottom: 20px;
@@ -164,9 +201,9 @@ button:hover {
 }
 
 .theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  /* position: absolute; */ /* Removed absolute positioning here as it's now in controls-top */
+  /* top: 20px; */
+  /* right: 20px; */
   background-color: var(--theme-toggle-bg);
   color: var(--theme-toggle-color);
   width: 50px; /* Adjust button size for icon */
